@@ -1,0 +1,80 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-display: "Sora", system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.12 0.01 160);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.18 0.02 160 / 85%);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.18 0.02 160 / 90%);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.82 0.22 150);
+  --primary-foreground: oklch(0.1 0.03 160);
+  --secondary: oklch(0.28 0.02 160 / 80%);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.24 0.012 160);
+  --muted-foreground: oklch(1 0 0);
+  --accent: oklch(0.32 0.08 150 / 80%);
+  --accent-foreground: oklch(0.95 0.18 150);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.82 0.22 150);
+  --gradient-glow: radial-gradient(ellipse at top, oklch(0.82 0.22 150 / 30%), transparent 60%);
+  --shadow-glow: 0 10px 40px -10px oklch(0.82 0.22 150 / 60%);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    background-image: linear-gradient(oklch(0 0 0 / 50%), oklch(0 0 0 / 50%)), url("/fundo1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-shadow: 0 2px 12px oklch(0 0 0 / 60%);
+  }
+}
+
+@utility bg-glow { background-image: var(--gradient-glow); }
+@utility shadow-glow { box-shadow: var(--shadow-glow); }
